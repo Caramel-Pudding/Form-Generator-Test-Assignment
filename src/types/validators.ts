@@ -1,3 +1,5 @@
+import { InputValue } from "./meta-data";
+
 export type ValidationGroup = Record<string, Validator[]>;
 
-export type Validator = (field: string) => boolean;
+export type Validator = (value: InputValue) => boolean;

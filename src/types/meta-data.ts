@@ -1,3 +1,5 @@
+export type InputValue = string | number | undefined;
+
 export type InputType =
   | "button"
   | "checkbox"
@@ -25,12 +27,12 @@ export type InputType =
 export type TextareaType = "textarea";
 
 export interface MetaDataField {
-  id: string;
-  type: InputType | TextareaType;
-  label: string;
-  disabled?: boolean;
+  readonly id: string;
+  readonly type: InputType | TextareaType;
+  readonly label: string;
+  readonly disabled?: boolean;
 }
 
 export interface MetaData {
-  fields: MetaDataField[];
+  readonly fields: MetaDataField[];
 }

@@ -4,7 +4,7 @@ import { GeneratedForm } from "@/components/GeneratedForm";
 import { dataStub } from "@/consts/data";
 import { metaDataStub } from "@/consts/metadata";
 
-import { isRequired } from "@/utilities/validators";
+import { checkAge, checkName, isRequired } from "@/utilities/validators";
 import styles from "./styles.module.css";
 
 const Home: FC = () => {
@@ -25,8 +25,8 @@ const Home: FC = () => {
         data={dataStub}
         metaData={metaDataStub}
         validators={{
-          name: [isRequired],
-          age: [isRequired],
+          name: [isRequired, checkName],
+          age: [isRequired, checkAge],
         }}
       />
     </main>

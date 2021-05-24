@@ -1,1 +1,3 @@
-export type Data = Record<string, string | number>;
+import { InputValue } from "./meta-data";
+
+export type Data = Record<string, InputValue>;
