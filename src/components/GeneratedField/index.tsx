@@ -11,11 +11,9 @@ export const GeneratedField: FC<GeneratedFieldProps> = memo(
   ({ field, value }) => {
     if (field.type === "textarea") {
       return (
-        <textarea
-          disabled={field.disabled}
-          value={value || undefined}
-          onChange={() => {}}
-        />
+        <textarea disabled={field.disabled} onChange={() => {}}>
+          {value || undefined}
+        </textarea>
       );
     }
     return (
