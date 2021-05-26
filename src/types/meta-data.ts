@@ -36,3 +36,8 @@ export interface MetaDataField {
 export interface MetaData {
   readonly fields: MetaDataField[];
 }
+
+export interface Field {
+  readonly value: InputValue;
+  readonly errors: string[];
+}

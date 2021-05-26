@@ -38,6 +38,11 @@ export const metaDataStub: MetaData = {
       label: "Age",
     },
     {
+      id: "email",
+      type: "email",
+      label: "E-mail",
+    },
+    {
       id: "comments",
       type: "textarea",
       label: "Comments",

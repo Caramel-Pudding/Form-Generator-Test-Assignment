@@ -40,6 +40,7 @@
       "unicorn/no-null": "off",
       "unicorn/no-array-for-each": "off",
       "unicorn/no-array-reduce": "off",
+      "unicorn/explicit-length-check": "off",
       "sonarjs/no-duplicate-string": "off"
     },
     "globals": {
