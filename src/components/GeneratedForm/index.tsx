@@ -70,9 +70,8 @@ export const GeneratedForm: FC<GeneratedFormProps> = memo(
           <label key={field.id} className={styles.field}>
             {field.label}
             <GeneratedField
-              errors={formState[field.id].errors}
-              field={field}
-              value={formState[field.id].value}
+              fieldData={formState[field.id]}
+              fieldMeta={field}
               onChange={(value: InputValue) =>
                 handleFieldChange(field.id, value)
               }

@@ -1,13 +1,12 @@
 import React, { FC, memo, FormEvent } from "react";
 
-import { InputValue, MetaDataField } from "@/types/meta-data";
+import { Field, InputValue, MetaDataField } from "@/types/meta-data";
 import { InputType } from "zlib";
 
 interface GeneratedFieldProps {
-  readonly field: MetaDataField;
-  readonly value: InputValue;
+  readonly fieldMeta: MetaDataField;
+  readonly fieldData: Field;
   readonly onChange: (value: InputValue) => void;
-  readonly errors?: string[];
 }
 
 const getDefaultValue = (inputType: InputType) => {
@@ -23,13 +22,13 @@ const getDefaultValue = (inputType: InputType) => {
 };
 
 export const GeneratedField: FC<GeneratedFieldProps> = memo(
-  ({ field, value, onChange, errors }) => {
+  ({ fieldMeta, fieldData, onChange }) => {
     const renderField = () => {
-      if (field.type === "textarea") {
+      if (fieldMeta.type === "textarea") {
         return (
           <textarea
-            disabled={field.disabled}
-            value={value || ""}
+            disabled={fieldMeta.disabled}
+            value={fieldData.value || ""}
             onChange={(event: FormEvent<HTMLTextAreaElement>) =>
               onChange(event.currentTarget.value)
             }
@@ -38,9 +37,9 @@ export const GeneratedField: FC<GeneratedFieldProps> = memo(
       }
       return (
         <input
-          disabled={field.disabled}
-          type={field.type}
-          value={value || getDefaultValue(field.type)}
+          disabled={fieldMeta.disabled}
+          type={fieldMeta.type}
+          value={fieldData.value || getDefaultValue(fieldMeta.type)}
           onChange={(event: FormEvent<HTMLInputElement>) =>
             onChange(event.currentTarget.value)
           }
@@ -51,7 +50,8 @@ export const GeneratedField: FC<GeneratedFieldProps> = memo(
     return (
       <>
         {renderField()}
-        {errors && errors.map((error) => <div key={error}>{error}</div>)}
+        {fieldData.errors &&
+          fieldData.errors.map((error) => <div key={error}>{error}</div>)}
       </>
     );
   }
